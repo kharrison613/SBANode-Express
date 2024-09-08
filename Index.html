@@ -3,53 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KEMS</title>
-<link rel = "stylesheet" href="./style.css">
+    <title>KEM</title>
+<link rel = "stylesheet" href="./public/style.css">
 </head>
 <body>
-    <%- include('partials/header') %>
+
 </body>
 
     <header>
-        <h1>KEMS</h1>
+        <h1>Event List</h1>
+        <ul>
+
+        </ul>
     </header>
     <main>
-        <%- body %>
     </main>
-    <%- include('layout') %>
-<h2>Upcoming Events</h2>
+<h1>Upcoming Events</h2>
 <ul>
-  <% events.forEach(event => { %>
+    <% events.forEach(event => { %>
     <li>
-      <a href="/event/<%= event._id %>"><%= event.name %></a>
-      - <%= event.date.toDateString() %> - <%= event.location %>
+        <a href="/events/<%= event.id %>"><%= event.type %> - <%= event.date %></a>
     </li>
+    <% }) %>
   <% }) %>
 </ul>
 
 <h2>Add New Event</h2>
-<form action="/add-event" method="POST">
-  <label for="name">Event Name:</label>
-  <input type="text" id="name" name="name" required>
+<form action="/events" method="POST">
+  <label for="type">Event Name:</label>
+  <input type="text" id="type" name="type" required>
   <label for="date">Date:</label>
   <input type="date" id="date" name="date" required>
-  <label for="location">Location:</label>
-  <input type="text" id="location" name="location" required>
+  <label for="description">Location:</label>
+  <textarea id="description" name="description" required></textarea>
   <button type="submit">Add Event</button>
 </form>
 
-<%- include('layout') %>
+</body>
+</html>
+
+<!-- <%- include('layout') %>
 <h2><%= event.name %></h2>
 <p>Date: <%= event.date.toDateString() %></p>
 <p>Location: <%= event.location %></p>
-<a href="/">Back to Events List</a>
+<a href="/">Back to Events List</a> -->
 
 
-    <script src = "index.js"></script>
+    <!-- <script src = "index.js"></script> -->
 
-    <div id="prime-list"></div>
+    <!-- <div id="prime-list"></div> -->
 
-    <script> </script>
+    <!-- <script> </script> -->
 
-</body>
-</html>

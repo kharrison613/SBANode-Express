@@ -1,4 +1,4 @@
-const express = require('express');
+ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
@@ -26,6 +26,9 @@ app.use(express.static('public'));
 
 // Set EJS as template engine
 app.set('view engine', 'ejs');
+app.get('/'userQuery, (req, res) => {
+    res.render('index',{data, {userQuery: req.params.user query}});
+});
 
 // Include routes
 const eventRoutes = require('./routes/events');
